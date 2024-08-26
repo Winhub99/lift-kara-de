@@ -1,2 +1,4 @@
 Steps
+1)create a form that takes two inputs one for lift count another for floors.
+2)Generate webpage with resultant lifts and levels and buttons for navigating up/down.
 
