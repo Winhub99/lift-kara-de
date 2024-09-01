@@ -14,13 +14,19 @@ formEl.addEventListener('submit',function(e){
         const div = document.createElement('div')
         const hr = document.createElement('hr')
         const span = document.createElement('span')
-        hr.style.border ='2px solid black'
+        div.style.display='flex'
+        div.style.alignItems='center'
         div.style.width ='750px'
         div.style.marginBottom='125px'
 
+        hr.style.border ='2px solid black'
+        hr.style.flexGrow='1'
+        hr.style.margin='0 10px'
+
         span.textContent= 'Floor ' + (floors - i)
-        div.appendChild(span)
         div.appendChild(hr)
+        div.appendChild(span)
+
         containerEL.appendChild(div)
     }  
 })
