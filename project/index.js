@@ -13,6 +13,18 @@ formEl.addEventListener('submit',function(e){
         const div = document.createElement('div')
         const hr = document.createElement('hr')
         const span = document.createElement('span')
+       
+        const btns = document.createElement('div')
+        const up =document.createElement('button')
+        const down =document.createElement('button')
+        btns.appendChild(up)
+        btns.appendChild(down)
+       
+        btns.style.display='flex'
+        btns.style.flexDirection='column'
+        btns.style.gap='10px'
+        btns.style.width='30px'
+        btns.style.height='30px'
         div.style.display='flex'
         div.style.alignItems='center'
         div.style.width ='750px'
@@ -23,6 +35,7 @@ formEl.addEventListener('submit',function(e){
         hr.style.margin='0 10px'
 
         span.textContent= 'Floor ' + (floors - i)
+        div.appendChild(btns)
         div.appendChild(hr)
         div.appendChild(span)
 
@@ -37,8 +50,8 @@ formEl.addEventListener('submit',function(e){
             for(let j=0;j<lifts;j++){
                 const lift = document.createElement('div')
                 div.style.marginTop='-7.5px'
-                lift.style.width='50px'
-                lift.style.height='75px'
+                lift.style.width='70px'
+                lift.style.height='90px'
                 lift.style.border='1px solid black'
                 lift.style.backgroundColor='aqua'
                 lift.style.marginLeft='75px'
