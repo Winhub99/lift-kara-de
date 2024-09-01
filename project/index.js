@@ -25,6 +25,12 @@ formEl.addEventListener('submit',function(e){
         btns.style.gap='10px'
         btns.style.width='30px'
         btns.style.height='30px'
+
+        up.className='btn'
+        down.className='btn'
+        up.textContent='U'
+        down.textContent="D"
+
         div.style.display='flex'
         div.style.alignItems='center'
         div.style.width ='750px'
