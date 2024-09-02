@@ -34,7 +34,8 @@ formEl.addEventListener('submit',function(e){
         div.style.display='flex'
         div.style.alignItems='center'
         div.style.width ='750px'
-        div.style.marginBottom='125px'
+        // div.style.marginBottom='125px'
+        div.style.marginTop='125px'
 
         hr.style.border ='2px solid black'
         hr.style.flexGrow='1'
@@ -47,6 +48,7 @@ formEl.addEventListener('submit',function(e){
 
         if(i== floors-2){
             div.style.marginBottom='50px'
+            //div.style.marginTop='50px'
         }
 
         if(i == floors - 1){
@@ -71,10 +73,5 @@ formEl.addEventListener('submit',function(e){
 
     }  
 
-    // const lift = document.createElement('div')
-    // lift.style.width='50px'
-    // lift.style.height='75px'
-    // lift.style.border='1px solid black'
-    // lift.style.backgroundColor='aqua'
-    // containerEL.appendChild(lift)
+
 })
