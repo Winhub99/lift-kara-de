@@ -53,12 +53,16 @@ formEl.addEventListener('submit',function(e){
             //div.style.marginTop='50px'
         }
 
+
         if(i == floors - 1){
             const liftsContainer= document.createElement('div')
             liftsContainer.style.display='flex'
             liftsContainer.style.marginLeft='50px'
              liftsContainer.style.position='relative'
             liftsContainer.style.top='5.20px'
+            
+            down.style.visibility="hidden"
+
             for(let j=0;j<lifts;j++){
                 const lift = document.createElement('div')
                 div.style.marginTop='-7.5px'
@@ -71,6 +75,10 @@ formEl.addEventListener('submit',function(e){
             }
             containerEL.appendChild(liftsContainer)
 
+        }
+
+        if(i== 0){
+            up.style.visibility="hidden"
         }
 
         containerEL.appendChild(div)
