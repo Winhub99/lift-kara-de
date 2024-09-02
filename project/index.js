@@ -25,6 +25,8 @@ formEl.addEventListener('submit',function(e){
         btns.style.gap='10px'
         btns.style.width='30px'
         btns.style.height='30px'
+        btns.style.position='relative'
+        btns.style.top='-36px'
 
         up.className='btn'
         down.className='btn'
@@ -55,6 +57,8 @@ formEl.addEventListener('submit',function(e){
             const liftsContainer= document.createElement('div')
             liftsContainer.style.display='flex'
             liftsContainer.style.marginLeft='50px'
+             liftsContainer.style.position='relative'
+            liftsContainer.style.top='5.20px'
             for(let j=0;j<lifts;j++){
                 const lift = document.createElement('div')
                 div.style.marginTop='-7.5px'
