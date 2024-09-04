@@ -4,3 +4,4 @@ Steps
 3)write logic to move lifts using buttons and animations
 3.1)move a box up and down
 3.2)find position of each floors
+3.3)test he app
