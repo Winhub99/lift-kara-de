@@ -5,8 +5,8 @@ Steps
 Thoughts-> assign handlers to the buttons,create variables-> a) each lift
                                                              b) current floor of lift
                                                              c) destination when up/down on a level is clicked
-                                                             d)Now move the lift closest to destination
-                                                             e)Now work on opening and closing door of lift
+                                                             d) Now move the lift closest to destination
+                                                             e) Now work on opening and closing door of lift
 3.1)move a box up and down
 3.2)find position of each floors
 3.3)test he app
