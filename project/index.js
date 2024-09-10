@@ -76,6 +76,7 @@ formEl.addEventListener('submit',function(e){
 
             for(let j=0;j<lifts;j++){
                 const lift = document.createElement('div')
+                let liftname= 'lift'+i
                 lift.id= 'lift'+ j;
                 div.style.marginTop='-7.5px'
                 lift.style.width='70px'
