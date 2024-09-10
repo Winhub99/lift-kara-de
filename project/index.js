@@ -8,6 +8,8 @@ formEl.addEventListener('submit',function(e){
     console.log('the no. of floors required are :',floors);
     let lifts =document.getElementById('lifts').value;
     console.log('the no. of lifts required are :',lifts);
+
+    let destination=0;
     
     for(let i=0;i<floors;i++){
         const div = document.createElement('div')
@@ -74,6 +76,7 @@ formEl.addEventListener('submit',function(e){
 
             for(let j=0;j<lifts;j++){
                 const lift = document.createElement('div')
+                lift.id= 'lift'+ j;
                 div.style.marginTop='-7.5px'
                 lift.style.width='70px'
                 lift.style.height='90px'
