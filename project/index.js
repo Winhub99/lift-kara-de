@@ -21,6 +21,11 @@ formEl.addEventListener('submit',function(e){
             
         })
         const down =document.createElement('button')
+
+        down.addEventListener('click', ()=>{
+            console.log('down button clicked!');
+            
+        })
         btns.appendChild(up)
         btns.appendChild(down)
        
