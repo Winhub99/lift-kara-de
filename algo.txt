@@ -3,9 +3,9 @@ Steps
 2)Generate webpage with resultant lifts and levels and buttons for navigating up/down.
 3)write logic to move lifts using buttons and animations
 Thoughts-> assign handlers to the buttons,create variables for ->
-                a) each lift
-                b) current floor of lift
-                c) destination when up/down on a level is clicked
-                d) Now move the specific lift that is closest to destination
-                e) Now work on opening and closing door of lift
+                a) each lift.
+                b) current floor of lift.
+                c) destination when up/down on a level is clicked.
+                d) Now move the specific lift that is closest to destination.
+                e) Now work on opening and closing door of lift.
 4)test the app
