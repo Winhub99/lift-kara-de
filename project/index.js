@@ -20,7 +20,21 @@ formEl.addEventListener('submit',function(e){
         const up =document.createElement('button')
         up.addEventListener('click', ()=>{
             console.log('up button clicked!');
-            
+            const nearestLift= document.getElementById('lift1')
+            console.log('the selected lift is : ',nearestLift);
+            nearestLift.style.position='relative'
+            let position = 0;
+            let interval = setInterval(moveUp,  10);
+
+            function moveUp(){
+                if (position >=162) {
+                    clearInterval(interval); // Stop the animation when the box reaches the top
+                } else {
+                    position += 2; // Change this value to adjust the speed
+                    nearestLift.style.bottom = position + 'px';
+                }
+            }
+                        
         })
         const down =document.createElement('button')
 
@@ -87,6 +101,7 @@ formEl.addEventListener('submit',function(e){
                 lift.style.backgroundColor='aqua'
                 lift.style.marginLeft='75px'
                 liftsContainer.appendChild(lift)
+                lift.style.bottom=0;
             }
             containerEL.appendChild(liftsContainer)
 
