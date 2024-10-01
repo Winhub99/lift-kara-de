@@ -24,7 +24,7 @@ formEl.addEventListener('submit',function(e){
             console.log('the selected lift is : ',nearestLift);
             nearestLift.style.position='relative'
             let position = 0;
-            let interval = setInterval(moveUp,  10);//call function after every 10 millisecond
+            let interval = setInterval(moveUp,  10);//call function after every 10 millisecs
 
             function moveUp(){
                 if (position >=162) {
