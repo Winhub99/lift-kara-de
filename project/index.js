@@ -18,8 +18,11 @@ formEl.addEventListener('submit',function(e){
        
         const btns = document.createElement('div')
         const up =document.createElement('button')
+        const floorNumber = floors -i;
         up.addEventListener('click', ()=>{
             console.log('up button clicked!');
+            console.log('The lift was requested on floor level  :', floorNumber);
+
             const nearestLift= document.getElementById('lift1')
             console.log('the selected lift is : ',nearestLift);
             nearestLift.style.position='relative'
@@ -69,8 +72,7 @@ formEl.addEventListener('submit',function(e){
         hr.style.margin='0 10px'
 
         span.textContent= 'Floor ' + (floors - i)
-        const floorNumber = floors -i;
-        console.log('The current floor level is :', floorNumber);
+
     
         div.appendChild(btns)
         div.appendChild(hr)
