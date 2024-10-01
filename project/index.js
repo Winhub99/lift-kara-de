@@ -22,7 +22,6 @@ formEl.addEventListener('submit',function(e){
         up.addEventListener('click', ()=>{
             console.log('up button clicked!');
             console.log('The lift was requested on floor level  :', floorNumber);
-
             const nearestLift= document.getElementById('lift1')
             console.log('the selected lift is : ',nearestLift);
             nearestLift.style.position='relative'
