@@ -69,6 +69,9 @@ formEl.addEventListener('submit',function(e){
         hr.style.margin='0 10px'
 
         span.textContent= 'Floor ' + (floors - i)
+        const floorNumber = floors -i;
+        console.log('The current floor level is :', floorNumber);
+    
         div.appendChild(btns)
         div.appendChild(hr)
         div.appendChild(span)
@@ -90,8 +93,11 @@ formEl.addEventListener('submit',function(e){
 
             for(let j=0;j<lifts;j++){
                 const lift = document.createElement('div')
-                let liftname= 'lift'+i
-                console.log('the current kift is :',liftname);
+                let liftname= 'lift'+j
+                const currentLiftLevel=0
+                console.log('the current lift is :',liftname);
+                console.log('the current level of the lift is :',currentLiftLevel);
+
                 
                 lift.id= 'lift'+ j;
                 div.style.marginTop='-7.5px'
