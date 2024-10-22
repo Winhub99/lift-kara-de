@@ -24,9 +24,10 @@ formEl.addEventListener('submit',function(e){
             console.log('The lift was requested on floor level  :', floorNumber);
             const nearestLift= document.getElementById('lift1')
             console.log('the selected lift is : ',nearestLift);
+
+
             let position = parseFloat(nearestLift.style.bottom);
 
-            
             console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
             
             let interval = setInterval(moveUp,  10);//call function after every 10 millisecs
@@ -34,7 +35,7 @@ formEl.addEventListener('submit',function(e){
             //change logic -> make suitable for iteration
 
             function moveUp(){
-                if (position >=162) {
+                if (position >=162*(floorNumber - 1)) {
                     clearInterval(interval); // Stop the animation when the box reaches the top
                 } else {
                     position += 2; // Change this value to adjust the speed
