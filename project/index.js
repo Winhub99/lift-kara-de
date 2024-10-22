@@ -36,6 +36,7 @@ formEl.addEventListener('submit',function(e){
 
             function moveUp(){
                 if (position >=162*(floorNumber - 1)) {
+                    currentLiftLevel = floorNumber - 1
                     clearInterval(interval); // Stop the animation when the box reaches the top
                 } else {
                     position += 2; // Change this value to adjust the speed
@@ -54,7 +55,8 @@ formEl.addEventListener('submit',function(e){
             console.log('The lift was requested on floor level  :', floorNumber);
             const nearestLift= document.getElementById('lift1')
             console.log('the selected lift is : ',nearestLift);
-
+            console.log('the current position of the lift is : ', currentLiftLevel);
+            
 
             let position = parseFloat(nearestLift.style.bottom);
 
@@ -66,6 +68,7 @@ formEl.addEventListener('submit',function(e){
 
             function moveDown(){
                 if (position <=162*(floorNumber - 1)) {
+                    currentLiftLevel= floorNumber - 1;
                     clearInterval(interval); // Stop the animation when the box reaches the top
                 } else {
                     position -= 2; // Change this value to adjust the speed
