@@ -24,7 +24,7 @@ formEl.addEventListener('submit',function(e){
             console.log('The lift was requested on floor level  :', floorNumber);
             const nearestLift= document.getElementById('lift1')
             console.log('the selected lift is : ',nearestLift);
-            nearestLift.style.position='relative'
+           // nearestLift.style.position='relative'
             let position = 0;
             let interval = setInterval(moveUp,  10);//call function after every 10 millisecs
 
@@ -109,6 +109,7 @@ formEl.addEventListener('submit',function(e){
                 lift.style.marginLeft='75px'
                 liftsContainer.appendChild(lift)
                 lift.style.bottom=0;
+                lift.style.position='relative'
             }
             containerEL.appendChild(liftsContainer)
 
