@@ -48,7 +48,32 @@ formEl.addEventListener('submit',function(e){
 
         down.addEventListener('click', ()=>{
             console.log('down button clicked!');
+
+            //logic to move the lift downwards
+
+            console.log('The lift was requested on floor level  :', floorNumber);
+            const nearestLift= document.getElementById('lift1')
+            console.log('the selected lift is : ',nearestLift);
+
+
+            let position = parseFloat(nearestLift.style.bottom);
+
+            console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
             
+            let interval = setInterval(moveDown,  10);//call function after every 10 millisecs
+
+            //change logic -> make suitable for iteration
+
+            function moveDown(){
+                if (position <=162*(floorNumber - 1)) {
+                    clearInterval(interval); // Stop the animation when the box reaches the top
+                } else {
+                    position -= 2; // Change this value to adjust the speed
+                    nearestLift.style.bottom = position + 'px' ;
+                }
+            }
+         
+           
         })
         btns.appendChild(up)
         btns.appendChild(down)
