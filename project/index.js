@@ -22,6 +22,17 @@ formEl.addEventListener('submit',function(e){
         up.addEventListener('click', ()=>{
             console.log('up button clicked!');
             console.log('The lift was requested on floor level  :', floorNumber);
+
+
+            //write logic to find the nearest lift
+            for (let k=0;k<lifts;k++){
+                const currLift = document.getElementById('lift'+k)
+                console.log('the current lift is : ',currLift);
+                console.log('the lift is currently at floor level: ', currentLiftLevel);
+                
+                
+
+            }
             const nearestLift= document.getElementById('lift1')
             console.log('the selected lift is : ',nearestLift);
 
@@ -126,12 +137,14 @@ formEl.addEventListener('submit',function(e){
             
             down.style.visibility="hidden"
 
+            //create a map to store current floor level of each lift
+            let currentLiftLevels={}
             for(let j=0;j<lifts;j++){
                 const lift = document.createElement('div')
                 let liftname= 'lift'+j
-                const currentLiftLevel=0
+                 currentLiftLevels[lift.id]=0
                 console.log('the current lift is :',liftname);
-                console.log('the current level of the lift is :',currentLiftLevel);
+                console.log('the current level of the lift is :',currentLiftLevels[liftname]);
 
                 
                 lift.id= 'lift'+ j;
