@@ -65,7 +65,8 @@ formEl.addEventListener('submit',function(e){
                 nearestLift = allLiftsOnClosestLevel[randomIndex]
             }
             console.log('the selected lift is : ',nearestLift);
-            
+
+            //.....contd. from here test above code  i.e check if above code finds lift and work on updating floor level of each lift
             let position = parseFloat(nearestLift.style.bottom);
 
             console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
