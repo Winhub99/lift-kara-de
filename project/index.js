@@ -48,15 +48,24 @@ formEl.addEventListener('submit',function(e){
                         
                     }
                 }
-
-                
-                
-
             }
-            const nearestLift= document.getElementById('lift1')
+
+            let closestLiftAtLevel= 99999;
+            let nearestLift= document.getElementById('lift1')
+
+            if(Math.abs(closestLiftAtUpperLevel)<Math.abs(closestLiftAtLowerLevel)){
+                 closestLiftAtLevel=closestLiftAtUpperLevel;
+            }else{
+                closestLiftAtLevel = closestLiftAtLowerLevel;
+            }
+            console.log('the closest lift is at floor level: ', closestLiftAtLevel);
+            const allLiftsOnClosestLevel = Object.keys(currentLiftLevels).filter(key =>currentLiftLevels[key]===closestLiftAtLevel)
+            if(allLiftsOnClosestLevel.length>0){
+                const randomIndex = Math.floor(Math.random()*allLiftsOnClosestLevel*length)
+                nearestLift = allLiftsOnClosestLevel[randomIndex]
+            }
             console.log('the selected lift is : ',nearestLift);
-
-
+            
             let position = parseFloat(nearestLift.style.bottom);
 
             console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
