@@ -10,6 +10,8 @@ formEl.addEventListener('submit',function(e){
     console.log('the no. of lifts required are :',lifts);
 
     let destination=0;
+    //create a map to store current floor level of each lift
+    let currentLiftLevels={}    
     
     for(let i=0;i<floors;i++){
         const div = document.createElement('div')
@@ -25,10 +27,28 @@ formEl.addEventListener('submit',function(e){
 
 
             //write logic to find the nearest lift
+            let closestLiftAtUpperLevel=-999;
+            let closestLiftAtLowerLevel=999;
             for (let k=0;k<lifts;k++){
                 const currLift = document.getElementById('lift'+k)
                 console.log('the current lift is : ',currLift);
-                console.log('the lift is currently at floor level: ', currentLiftLevel);
+                console.log('the lift is currently at floor level: ', currentLiftLevels['lift'+k]);
+               // console.log('is -1 greater than -10 ',-1 > -10);
+                if(currentLiftLevels['lift'+k]>floorNumber){
+                    if((currentLiftLevels['lift'+k]-floorNumber)>closestLiftAtUpperLevel){
+                        console.log('reached here');
+                        closestLiftAtUpperLevel=currentLiftLevels['lift'+k] - floorNumber;
+                        console.log('the updated value of closestUpperLift is : ',closestLiftAtUpperLevel);   
+                    }
+                }else{
+
+                    if((floorNumber- currentLiftLevels['lift'+ k])<closestLiftAtLowerLevel){
+                        closestLiftAtLowerLevel = floorNumber - currentLiftLevels['lift'+k]
+                        console.log('the updated value of closestLowerLift is : ',closestLiftAtLowerLevel);   
+                        
+                    }
+                }
+
                 
                 
 
@@ -137,17 +157,15 @@ formEl.addEventListener('submit',function(e){
             
             down.style.visibility="hidden"
 
-            //create a map to store current floor level of each lift
-            let currentLiftLevels={}
+
             for(let j=0;j<lifts;j++){
                 const lift = document.createElement('div')
                 let liftname= 'lift'+j
+                lift.id= 'lift'+ j;
+
                  currentLiftLevels[lift.id]=0
                 console.log('the current lift is :',liftname);
                 console.log('the current level of the lift is :',currentLiftLevels[liftname]);
-
-                
-                lift.id= 'lift'+ j;
                 div.style.marginTop='-7.5px'
                 lift.style.width='70px'
                 lift.style.height='90px'
@@ -158,11 +176,13 @@ formEl.addEventListener('submit',function(e){
                 lift.style.bottom=0;
                 lift.style.position='relative'
             }
+            console.log('the currentliftLevels of all lifts is ', currentLiftLevels);
+            
             containerEL.appendChild(liftsContainer)
 
         }
 
-        if(i== 0){
+        if(i == 0){
             up.style.visibility="hidden"
         }
 
