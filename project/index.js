@@ -12,7 +12,7 @@ formEl.addEventListener('submit',function(e){
     let destination=0;
     //create a map to store current floor level of each lift
     let currentLiftLevels={}    
-    
+
     for(let i=0;i<floors;i++){
         const div = document.createElement('div')
         const hr = document.createElement('hr')
@@ -65,6 +65,8 @@ formEl.addEventListener('submit',function(e){
                 nearestLift = allLiftsOnClosestLevel[randomIndex]
             }
             console.log('the selected lift is : ',nearestLift);
+            console.log('the id of selectedLift is : ', nearestLift.id);
+            
 
             //.....contd. from here test above code  i.e check if above code finds lift and work on updating floor level of each lift
             let position = parseFloat(nearestLift.style.bottom);
@@ -78,6 +80,7 @@ formEl.addEventListener('submit',function(e){
             function moveUp(){
                 if (position >=162*(floorNumber - 1)) {
                     currentLiftLevel = floorNumber - 1
+                    currentLiftLevels[nearestLift.id] = currentLiftLevel;
                     clearInterval(interval); // Stop the animation when the box reaches the top
                 } else {
                     position += 2; // Change this value to adjust the speed
@@ -94,7 +97,7 @@ formEl.addEventListener('submit',function(e){
             //logic to move the lift downwards
 
             console.log('The lift was requested on floor level  :', floorNumber);
-            const nearestLift= document.getElementById('lift1')
+           // const nearestLift= document.getElementById('lift1')
             console.log('the selected lift is : ',nearestLift);
             console.log('the current position of the lift is : ', currentLiftLevel);
             
