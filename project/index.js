@@ -29,64 +29,7 @@ formEl.addEventListener('submit',function(e){
             console.log('The lift was requested on floor level  :', floorNumber);
             console.log('here`s all info of lifts : ',currentLiftLevels );
             
-            //console.log('The nearest lift is : ',nearestLift);
-            
-
-            //write logic to find the nearest lift
-            
-            /*let closestLiftAtUpperLevel=-999;
-            let closestLiftAtLowerLevel=999;
-            for (let k=0;k<lifts;k++){
-                const currLift = document.getElementById('lift'+k)
-                console.log('the current lift is : ',currLift);
-                console.log('the lift is currently at floor level: ', currentLiftLevels['lift'+k]);
-               // console.log('is -1 greater than -10 ',-1 > -10);
-                if(currentLiftLevels['lift'+k]>floorNumber){
-                    if((currentLiftLevels['lift'+k]-floorNumber)>closestLiftAtUpperLevel){
-                        console.log('reached here');
-                        closestLiftAtUpperLevel=currentLiftLevels['lift'+k] - floorNumber;
-                        console.log('the updated value of closestUpperLift is : ',closestLiftAtUpperLevel);   
-                    }
-                }else{
-
-                    if((floorNumber- currentLiftLevels['lift'+ k])<closestLiftAtLowerLevel){
-                        closestLiftAtLowerLevel = floorNumber - currentLiftLevels['lift'+k]
-                        console.log('the updated value of closestLowerLift is : ',closestLiftAtLowerLevel);   
-                        
-                    }
-                }
-            }
-
-            let closestLiftAtLevel= 99999;
-            // nearestLift= document.getElementById('lift1')
-
-            if(Math.abs(closestLiftAtUpperLevel)<Math.abs(closestLiftAtLowerLevel)){
-                 closestLiftAtLevel=closestLiftAtUpperLevel;
-            }else{
-                closestLiftAtLevel = closestLiftAtLowerLevel;
-            }
-            console.log('the closest lift is at floor level: ', closestLiftAtLevel);
-
-            //fix logic here u r accessing values that don't exixt for keys all likfts are at 0 level
-            const allLiftsOnClosestLevel = Object.keys(currentLiftLevels).filter(key =>currentLiftLevels[key] === closestLiftAtLevel)
-            console.log('sample value check: ',currentLiftLevels['lift0']);
-            
-            console.log('All lifts on closest floor : ',allLiftsOnClosestLevel);
-            
-            if(allLiftsOnClosestLevel.length>0){
-                const randomIndex = Math.floor(Math.random()*allLiftsOnClosestLevel*length)
-                nearestLift = allLiftsOnClosestLevel[randomIndex]
-                console.log(nearestLift);
-                
-            }else{
-                nearestLift=document.getElementById('lift0')
-            }
-            console.log('the selected lift is : ',nearestLift);
-            console.log('the id of selectedLift is : ', nearestLift.id);*/
-            
-
-            //.....contd. from here test above code  i.e check if above code finds lift and work on updating floor level of each lift
-
+           
             let minDistance=Infinity;
             nearestLift = null;
 
