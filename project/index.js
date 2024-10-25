@@ -33,7 +33,8 @@ formEl.addEventListener('submit',function(e){
             
 
             //write logic to find the nearest lift
-            let closestLiftAtUpperLevel=-999;
+            
+            /*let closestLiftAtUpperLevel=-999;
             let closestLiftAtLowerLevel=999;
             for (let k=0;k<lifts;k++){
                 const currLift = document.getElementById('lift'+k)
@@ -70,21 +71,45 @@ formEl.addEventListener('submit',function(e){
             const allLiftsOnClosestLevel = Object.keys(currentLiftLevels).filter(key =>currentLiftLevels[key] === closestLiftAtLevel)
             console.log('sample value check: ',currentLiftLevels['lift0']);
             
-            
-            
             console.log('All lifts on closest floor : ',allLiftsOnClosestLevel);
             
             if(allLiftsOnClosestLevel.length>0){
                 const randomIndex = Math.floor(Math.random()*allLiftsOnClosestLevel*length)
                 nearestLift = allLiftsOnClosestLevel[randomIndex]
+                console.log(nearestLift);
+                
             }else{
                 nearestLift=document.getElementById('lift0')
             }
             console.log('the selected lift is : ',nearestLift);
-            console.log('the id of selectedLift is : ', nearestLift.id);
+            console.log('the id of selectedLift is : ', nearestLift.id);*/
             
 
             //.....contd. from here test above code  i.e check if above code finds lift and work on updating floor level of each lift
+
+            let minDistance=Infinity;
+            nearestLift = null;
+
+            for(let k=0;k<lifts;k++){
+                const liftId = 'lift'+k;
+                const currLift = document.getElementById(liftId)
+                const liftLevel = currentLiftLevels[liftId]
+
+                const distance = Math.abs(floorNumber - liftLevel)
+
+                if(distance<minDistance){
+                    minDistance= distance
+                    nearestLift= currLift
+                }
+            }
+
+            if(!nearestLift){
+                nearestLift = document.getElementById('lift0')
+            }
+
+            console.log('Nearest lift selected is:', nearestLift.id);
+
+
             let position = parseFloat(nearestLift.style.bottom);
 
             console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
