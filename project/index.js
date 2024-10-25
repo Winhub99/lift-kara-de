@@ -11,7 +11,9 @@ formEl.addEventListener('submit',function(e){
 
     let destination=0;
     //create a map to store current floor level of each lift
-    let currentLiftLevels={}    
+    let currentLiftLevels={}  
+    let nearestLift =null
+  
 
     for(let i=0;i<floors;i++){
         const div = document.createElement('div')
@@ -22,9 +24,13 @@ formEl.addEventListener('submit',function(e){
         const up =document.createElement('button')
         const floorNumber = floors -i;
         up.addEventListener('click', ()=>{
+            debugger;
             console.log('up button clicked!');
             console.log('The lift was requested on floor level  :', floorNumber);
-
+            console.log('here`s all info of lifts : ',currentLiftLevels );
+            
+            //console.log('The nearest lift is : ',nearestLift);
+            
 
             //write logic to find the nearest lift
             let closestLiftAtUpperLevel=-999;
@@ -51,7 +57,7 @@ formEl.addEventListener('submit',function(e){
             }
 
             let closestLiftAtLevel= 99999;
-            let nearestLift= document.getElementById('lift1')
+             nearestLift= document.getElementById('lift1')
 
             if(Math.abs(closestLiftAtUpperLevel)<Math.abs(closestLiftAtLowerLevel)){
                  closestLiftAtLevel=closestLiftAtUpperLevel;
@@ -59,10 +65,20 @@ formEl.addEventListener('submit',function(e){
                 closestLiftAtLevel = closestLiftAtLowerLevel;
             }
             console.log('the closest lift is at floor level: ', closestLiftAtLevel);
-            const allLiftsOnClosestLevel = Object.keys(currentLiftLevels).filter(key =>currentLiftLevels[key]===closestLiftAtLevel)
+
+            //fix logic here u r accessing values that don't exixt for keys all likfts are at 0 level
+            const allLiftsOnClosestLevel = Object.keys(currentLiftLevels).filter(key =>currentLiftLevels[key] === closestLiftAtLevel)
+            console.log('sample value check: ',currentLiftLevels['lift0']);
+            
+            
+            
+            console.log('All lifts on closest floor : ',allLiftsOnClosestLevel);
+            
             if(allLiftsOnClosestLevel.length>0){
                 const randomIndex = Math.floor(Math.random()*allLiftsOnClosestLevel*length)
                 nearestLift = allLiftsOnClosestLevel[randomIndex]
+            }else{
+                nearestLift=document.getElementById('lift0')
             }
             console.log('the selected lift is : ',nearestLift);
             console.log('the id of selectedLift is : ', nearestLift.id);
@@ -81,6 +97,8 @@ formEl.addEventListener('submit',function(e){
                 if (position >=162*(floorNumber - 1)) {
                     currentLiftLevel = floorNumber - 1
                     currentLiftLevels[nearestLift.id] = currentLiftLevel;
+                    console.log('the object is modified to : ', currentLiftLevels);
+                    
                     clearInterval(interval); // Stop the animation when the box reaches the top
                 } else {
                     position += 2; // Change this value to adjust the speed
@@ -95,7 +113,7 @@ formEl.addEventListener('submit',function(e){
             console.log('down button clicked!');
 
             //logic to move the lift downwards
-
+            debugger;
             console.log('The lift was requested on floor level  :', floorNumber);
            // const nearestLift= document.getElementById('lift1')
             console.log('the selected lift is : ',nearestLift);
@@ -195,9 +213,9 @@ formEl.addEventListener('submit',function(e){
 
         }
 
-        if(i == 0){
-            up.style.visibility="hidden"
-        }
+        // if(i == 0){
+        //     up.style.visibility="hidden"
+        // }
 
         containerEL.appendChild(div)
 
