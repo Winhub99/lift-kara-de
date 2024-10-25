@@ -57,7 +57,7 @@ formEl.addEventListener('submit',function(e){
             }
 
             let closestLiftAtLevel= 99999;
-             nearestLift= document.getElementById('lift1')
+            // nearestLift= document.getElementById('lift1')
 
             if(Math.abs(closestLiftAtUpperLevel)<Math.abs(closestLiftAtLowerLevel)){
                  closestLiftAtLevel=closestLiftAtUpperLevel;
