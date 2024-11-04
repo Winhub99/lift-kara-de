@@ -12,7 +12,6 @@ formEl.addEventListener('submit',function(e){
     let destination=0;
     //create a map to store current floor level of each lift
     let currentLiftLevels={}  
-    let nearestLift =null
   
 
     for(let i=0;i<floors;i++){
@@ -23,13 +22,7 @@ formEl.addEventListener('submit',function(e){
         const btns = document.createElement('div')
         const up =document.createElement('button')
         const floorNumber = floors -i;
-        up.addEventListener('click', ()=>{
-            debugger;
-            console.log('up button clicked!');
-            console.log('The lift was requested on floor level  :', floorNumber);
-            console.log('here`s all info of lifts : ',currentLiftLevels );
-            
-           
+        function findNearestLift(){
             let minDistance=Infinity;
             nearestLift = null;
 
@@ -49,6 +42,18 @@ formEl.addEventListener('submit',function(e){
             if(!nearestLift){
                 nearestLift = document.getElementById('lift0')
             }
+            return nearestLift;
+        }
+        up.addEventListener('click', ()=>{
+            debugger;
+            let nearestLift =null
+
+            console.log('up button clicked!');
+            console.log('The lift was requested on floor level  :', floorNumber);
+            console.log('here`s all info of lifts : ',currentLiftLevels );
+            
+           nearestLift= findNearestLift()
+            
 
             console.log('Nearest lift selected is:', nearestLift.id);
 
@@ -79,18 +84,20 @@ formEl.addEventListener('submit',function(e){
 
         down.addEventListener('click', ()=>{
             console.log('down button clicked!');
+            let nearestLift =null
 
+            nearestLift = findNearestLift()
             //logic to move the lift downwards
             debugger;
             console.log('The lift was requested on floor level  :', floorNumber);
            // const nearestLift= document.getElementById('lift1')
-            console.log('the selected lift is : ',nearestLift);
+           // console.log('the selected lift is : ',nearestLift);
             console.log('the current position of the lift is : ', currentLiftLevel);
             
 
             let position = parseFloat(nearestLift.style.bottom);
 
-            console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
+            //console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
             
             let interval = setInterval(moveDown,  10);//call function after every 10 millisecs
 
