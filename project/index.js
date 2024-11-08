@@ -55,7 +55,7 @@ formEl.addEventListener('submit',function(e){
             }else{
                  interval = setInterval(moveDown,  10);//call function after every 10 millisecs
 
-            }
+             }
 
             function moveUp(){
                 if (position >=162*(floorNumber - 1)) {
@@ -82,13 +82,7 @@ formEl.addEventListener('submit',function(e){
                     nearestLift.style.bottom = position + 'px' ;
                 }
             }
-    
-
         }
-
-        
-
-
 
         up.addEventListener('click', ()=>{
             debugger;
@@ -100,22 +94,13 @@ formEl.addEventListener('submit',function(e){
             
            nearestLift= findNearestLift()
             
-
             console.log('Nearest lift selected is:', nearestLift.id);
-
-
             let position = parseFloat(nearestLift.style.bottom);
-
             console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
-
             move(nearestLift.id,position)
-            
-
-            //change logic -> make suitable for iteration
-
-            
-                        
+               
         })
+
         const down =document.createElement('button')
 
         down.addEventListener('click', ()=>{
@@ -169,7 +154,7 @@ formEl.addEventListener('submit',function(e){
         hr.style.margin='0 10px'
 
         span.textContent= 'Floor ' + (floors - i)
-        
+
         div.appendChild(btns)
         div.appendChild(hr)
         div.appendChild(span)
