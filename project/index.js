@@ -42,6 +42,8 @@ formEl.addEventListener('submit',function(e){
             if(!nearestLift){
                 nearestLift = document.getElementById('lift0')
             }
+            console.log('the  nearest lift is as found by the function: ',nearestLift.id);
+            
             return nearestLift;
         }
         up.addEventListener('click', ()=>{
@@ -91,7 +93,7 @@ formEl.addEventListener('submit',function(e){
             debugger;
             console.log('The lift was requested on floor level  :', floorNumber);
            // const nearestLift= document.getElementById('lift1')
-           // console.log('the selected lift is : ',nearestLift);
+            console.log('the selected lift is : ',nearestLift.id);
             console.log('the current position of the lift is : ', currentLiftLevel);
             
 
@@ -106,6 +108,7 @@ formEl.addEventListener('submit',function(e){
             function moveDown(){
                 if (position <=162*(floorNumber - 1)) {
                     currentLiftLevel= floorNumber - 1;
+                    currentLiftLevels[nearestLift.id] = currentLiftLevel;
                     clearInterval(interval); // Stop the animation when the box reaches the top
                 } else {
                     position -= 2; // Change this value to adjust the speed
@@ -158,7 +161,7 @@ formEl.addEventListener('submit',function(e){
             const liftsContainer= document.createElement('div')
             liftsContainer.style.display='flex'
             liftsContainer.style.marginLeft='50px'
-             liftsContainer.style.position='relative'
+            liftsContainer.style.position='relative'
             liftsContainer.style.top='5.20px'
             
             down.style.visibility="hidden"
