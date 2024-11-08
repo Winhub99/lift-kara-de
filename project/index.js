@@ -56,7 +56,7 @@ formEl.addEventListener('submit',function(e){
 
             function moveUp(){
                 if (position >=162*(floorNumber - 1)) {
-                    currentLiftLevel = floorNumber - 1
+                    currentLiftLevel = floorNumber + 1
                     currentLiftLevels[nearestLift.id] = currentLiftLevel;
                     console.log('the object is modified to : ', currentLiftLevels);
                     
@@ -163,7 +163,7 @@ formEl.addEventListener('submit',function(e){
                 let liftname= 'lift'+j
                 lift.id= 'lift'+ j;
 
-                 currentLiftLevels[lift.id]=0
+                currentLiftLevels[lift.id]=0
                 console.log('the current lift is :',liftname);
                 console.log('the current level of the lift is :',currentLiftLevels[liftname]);
                 div.style.marginTop='-7.5px'
