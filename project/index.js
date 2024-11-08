@@ -22,6 +22,7 @@ formEl.addEventListener('submit',function(e){
         const btns = document.createElement('div')
         const up =document.createElement('button')
         const floorNumber = floors -i;
+        
         function findNearestLift(){
             let minDistance=Infinity;
             nearestLift = null;
@@ -30,20 +31,16 @@ formEl.addEventListener('submit',function(e){
                 const liftId = 'lift'+k;
                 const currLift = document.getElementById(liftId)
                 const liftLevel = currentLiftLevels[liftId]
-
                 const distance = Math.abs(floorNumber - liftLevel)
-
                 if(distance<minDistance){
                     minDistance= distance
                     nearestLift= currLift
                 }
             }
-
             if(!nearestLift){
                 nearestLift = document.getElementById('lift0')
             }
-            console.log('the  nearest lift is as found by the function: ',nearestLift.id);
-            
+            console.log('the  nearest lift is as found by the function: ',nearestLift.id);    
             return nearestLift;
         }
 
@@ -55,7 +52,7 @@ formEl.addEventListener('submit',function(e){
             }else{
                  interval = setInterval(moveDown,  10);//call function after every 10 millisecs
 
-            }
+             }
 
             function moveUp(){
                 if (position >=162*(floorNumber - 1)) {
@@ -82,13 +79,7 @@ formEl.addEventListener('submit',function(e){
                     nearestLift.style.bottom = position + 'px' ;
                 }
             }
-    
-
         }
-
-        
-
-
 
         up.addEventListener('click', ()=>{
             debugger;
@@ -96,26 +87,15 @@ formEl.addEventListener('submit',function(e){
 
             console.log('up button clicked!');
             console.log('The lift was requested on floor level  :', floorNumber);
-            console.log('here`s all info of lifts : ',currentLiftLevels );
-            
-           nearestLift= findNearestLift()
-            
-
+            console.log('here`s all info of lifts : ',currentLiftLevels );            
+            nearestLift= findNearestLift()    
             console.log('Nearest lift selected is:', nearestLift.id);
-
-
             let position = parseFloat(nearestLift.style.bottom);
-
             console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
-
             move(nearestLift.id,position)
-            
-
-            //change logic -> make suitable for iteration
-
-            
-                        
+               
         })
+
         const down =document.createElement('button')
 
         down.addEventListener('click', ()=>{
@@ -128,19 +108,11 @@ formEl.addEventListener('submit',function(e){
             console.log('The lift was requested on floor level  :', floorNumber);
            // const nearestLift= document.getElementById('lift1')
             console.log('the selected lift is : ',nearestLift.id);
-            console.log('the current position of the lift is : ', currentLiftLevel);
-            
-
+            console.log('the current position of the lift is : ', currentLiftLevel);            
             let position = parseFloat(nearestLift.style.bottom);
-
-            //console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));
-            
+            //console.log('the position of lift right now:  ',parseFloat(nearestLift.style.bottom));            
             move(nearestLift.id,position)
-            //change logic -> make suitable for iteration
-
-           
-         
-           
+            //change logic -> make suitable for iteration           
         })
         btns.appendChild(up)
         btns.appendChild(down)
@@ -169,7 +141,7 @@ formEl.addEventListener('submit',function(e){
         hr.style.margin='0 10px'
 
         span.textContent= 'Floor ' + (floors - i)
-        
+
         div.appendChild(btns)
         div.appendChild(hr)
         div.appendChild(span)
@@ -179,17 +151,13 @@ formEl.addEventListener('submit',function(e){
             //div.style.marginTop='50px'
         }
 
-
         if(i == floors - 1){
             const liftsContainer= document.createElement('div')
             liftsContainer.style.display='flex'
             liftsContainer.style.marginLeft='50px'
             liftsContainer.style.position='relative'
-            liftsContainer.style.top='5.20px'
-            
+            liftsContainer.style.top='5.20px'            
             down.style.visibility="hidden"
-
-
             for(let j=0;j<lifts;j++){
                 const lift = document.createElement('div')
                 let liftname= 'lift'+j
@@ -208,10 +176,8 @@ formEl.addEventListener('submit',function(e){
                 lift.style.bottom=0;
                 lift.style.position='relative'
             }
-            console.log('the currentliftLevels of all lifts is ', currentLiftLevels);
-            
+            console.log('the currentliftLevels of all lifts is ', currentLiftLevels);            
             containerEL.appendChild(liftsContainer)
-
         }
 
         // if(i == 0){
